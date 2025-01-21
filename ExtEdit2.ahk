@@ -1,12 +1,14 @@
 #Requires AutoHotkey v2.0
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 WINTITLE := "作成.* - Thunderbird"
+;; this is compose window title of Japanese TB.
 TEMPFILE := "C:\Temp\ExtEditAHK2.eml"
 EDITOR := "C:\opt\emacs-29.3\bin\emacsclient.exe -c -a `"`" " . TEMPFILE
-EDITORVIS := "Hide"  ;Max/Min/HideK
+EDITORVIS := "Hide"  
+;; emacsclient shows CMD window befor emacs frame window.hide it.
+;; Max or Min or Hide
 CLICKX := 50
 CLICKY := 500
-;MsgBox(EDITOR)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; forcus target window
 SetTitleMatchMode("RegEx")
