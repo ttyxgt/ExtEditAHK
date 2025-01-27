@@ -54,6 +54,7 @@ try{
     MsgBox("Failed to read text from temp file." . e.message)
     ExitApp(1)
 }
+;MsgBox(A_Clipboard)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; paste text to target window
@@ -68,8 +69,10 @@ Send("^v")
 Send("^{Home}")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; clean up
-A_Clipboard := ""
+;  clean up: 
+;  this clearing text after ^v, paste is not work.
+;  it seems that text is cleard before finishing paste.
+;A_Clipboard := ""
 ;if FileExist(TEMPFILE){
 ;    FileDelete(TEMPFILE)
 ;}
