@@ -1,6 +1,6 @@
 #Requires AutoHotkey v2.0
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-WINTITLE := "作成.* - Thunderbird"
+WINTITLE := "^作成.* - Thunderbird"
 ;; this is compose window title of Japanese TB.
 TEMPFILE := "C:\Temp\ExtEditAHK2.eml"
 EDITOR := "C:\opt\emacs-29.3\bin\emacsclient.exe -c -a `"`" " . TEMPFILE
@@ -63,6 +63,7 @@ if !WinExist(WINTITLE){
     ExitApp(1)
 }
 WinActivate(WINTITLE)
+WinWaitActive(WINTITLE)
 Click(CLICKX, CLICKY)
 Send("^a")
 Send("^v")
@@ -70,7 +71,7 @@ Send("^{Home}")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;  clean up: 
-;  this clearing text after ^v, paste is not work.
+;  clearing up clipboard after ^v, paste is not work.
 ;  it seems that text is cleard before finishing paste.
 ;A_Clipboard := ""
 ;if FileExist(TEMPFILE){
